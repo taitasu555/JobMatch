@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-header">
+    <div class="fa fa-user"></div>
+    <% if user.online? %>
+    <div class="text-success fas fa-circle"></div>
+    <% else %>
+    <div class="text-danger fas fa-circle"></div>
+    <% end %>
+    <%= link_to user.email, user_path(user) %>
+  </div>
+  <div class="card-footer">
+    Signed up
+    <%= time_ago_in_words(user.created_at) %>
+    ago
+  </div>
+  <div class="card-footer">
+    <b>
+      <%= 'sign_in_count'.humanize + ":" %>
+    </b>
+    <%= user.sign_in_count %>
+    <div class="row"></div>
+    <b>
+      <%= 'current_sign_in_at'.humanize + ":" %>
+    </b>
+    <%= user.current_sign_in_at %>
+    <div class="row"></div>
+    <b>
+      <%= 'last_sign_in_at'.humanize + ":" %>
+    </b>
+    <%= user.last_sign_in_at %>
+    <div class="row"></div>
+    <b>
+      <%= 'current_sign_in_ip'.humanize + ":" %>
+    </b>
+    <%= user.current_sign_in_ip %>
+    <div class="row"></div>
+    <b>
+      <%= 'last_sign_in_ip'.humanize + ":" %>
+    </b>
+    <%= user.last_sign_in_ip %>
+  </div>
+  <%
+=begin%>
+  <div class="card-footer">
+    <% user.roles.each do |role| %>
+    <div class="badge badge-info">
+      <%= role.name %>
+    </div>
+    <% end %>
+    <% if policy(user).edit? %>
+    <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+    <% end %>
+  </div>
+  <%
+=end%>
+</div>
