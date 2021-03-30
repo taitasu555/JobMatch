@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_060015) do
     t.string "address"
     t.string "language"
     t.string "japanese", default: "N5", null: false
-    t.string "status", default: "Full Time", null: false
+    t.string "status", default: "正社員", null: false
     t.string "position"
     t.integer "salary", default: 0, null: false
   end

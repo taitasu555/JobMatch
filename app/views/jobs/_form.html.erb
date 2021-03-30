@@ -4,19 +4,26 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.label :description %>
+    <%= f.input :title, label: "求人名(Job Name)"%>
+    <%= f.input :address, label: "場所(Place)"%>
+    <%= f.label :description, label: "求人説明(Job Detail)" %>
     <%= f.rich_text_area :description %>
     <small>
       <%= f.error :description, class: 'text-danger' %>
     </small>
 
-    <!--= f.input :language, collection: [ "English", "Polish", "Russian"]
-      -->
+    <%= f.input :language, label: "求める言語",collection: [ "English", "Chinese", "French", "Korean", "Spanish"] %>
+
+
+    <%= f.input :japanese, label: "必要とする日本語レベル(What level of Japanase needed for user)",collection: [ "N1", "N2", "N3" ,"N4", "N5"] %>
+
+    <%= f.input :salary, label: "給料(Salary)" %>
+
+    <%= f.input :status, label: "雇用形態",collection: [ "正社員", "契約社員", "アルバイト、パート",] %>
 
   </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-primary"%>
   </div>
   <% end %>
 </div>
