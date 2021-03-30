@@ -29,10 +29,16 @@
 @import "style.css";
 @import "themify-icons.css";
 
+// top.html.erbに使用する画像
 .mainpic {
   background-image: url("/images/hero/h1_hero.jpg");
 }
 
 .cv {
   background-image: url("/images/gallery/cv_bg.jpg");
+}
+
+// jobsのindex.html.erbに使用する画像
+.jobAllPic {
+  background-image: url("/images/hero/about.jpg");
 }
