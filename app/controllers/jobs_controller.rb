@@ -65,6 +65,6 @@ class JobsController < ApplicationController
 
    
     def job_params
-      params.require(:job).permit(:title, :description, :address,:language, :japanese, :status, :salary)
+      params.require(:job).permit(:title, :description, :address,:language, :japanese, :status, :salary).merge(user_id: current_user.id)
     end
 end
