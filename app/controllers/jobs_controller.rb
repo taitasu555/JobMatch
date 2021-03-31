@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:index]
   before_action :set_job, only: %i[ show edit update destroy ]
 
   
@@ -15,16 +16,18 @@ class JobsController < ApplicationController
   
   def new
     @job = Job.new
+    authorize @job
   end
 
 
   def edit
+    authorize @job
   end
 
  
   def create
     @job = Job.new(job_params)
-
+    authorize @job
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: "Job was successfully created." }

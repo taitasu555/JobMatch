@@ -27,4 +27,13 @@ class User < ApplicationRecord
     end
   end
 
+  private
+
+  # アカウントは必ず役割を持つ必要がある
+    def must_have_a_role
+      unless roles.any?
+        errors.add(:roles, "Must have at least one role ")
+      end    
+    end  
+
 end

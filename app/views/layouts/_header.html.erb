@@ -15,24 +15,37 @@
               <div class="main-menu">
                 <nav class="d-none d-lg-block">
                   <ul id="navigation">
-                    <li><a href="job_listing.html">Find a Jobs </a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#">Page</a>
+                    <li>
+                      <%= link_to "Find a Jobs", jobs_path %>
+                    </li>
+
+                    <% if current_user && current_user.has_role?(:admin) %>
+
+                    <li><a href="#">管理者用ページ</a>
                       <ul class="submenu">
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><%= link_to "利用者一覧", users_path %></li>
                         <li><a href="single-blog.html">Blog Details</a></li>
                         <li><a href="elements.html">Elements</a></li>
                         <li><a href="job_details.html">job Details</a></li>
                       </ul>
                     </li>
+
+                    <% end %>
+
+
                     <li><a href="contact.html">Contact</a></li>
                   </ul>
                 </nav>
               </div>
+
+              <!-- ログイン、ログアウト-->
               <div class="header-btn d-none f-right d-lg-block">
-                <a href="#" class="btn head-btn1">Register</a>
-                <%= %>
-                <%= link_to "Login", new_user_session_path%>
+                <% if current_user %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete,class:"btn head-btn1" %>
+                <% else %>
+                <%= link_to "Log In", new_user_session_path, class:"btn head-btn1" %>
+                <%= link_to "Sing Up", new_user_registration_path, class:"btn head-btn1" %>
+                <% end %>
               </div>
             </div>
           </div>
