@@ -17,6 +17,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'ransack'
+gem "rolify"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

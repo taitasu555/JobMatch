@@ -39,18 +39,21 @@
     </b>
     <%= user.last_sign_in_ip %>
   </div>
-  <%
-=begin%>
+
   <div class="card-footer">
     <% user.roles.each do |role| %>
     <div class="badge badge-info">
       <%= role.name %>
     </div>
     <% end %>
+    <%
+=begin%>
     <% if policy(user).edit? %>
     <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
     <% end %>
-  </div>
-  <%
+    <%
 =end%>
+  </div>
+
+
 </div>

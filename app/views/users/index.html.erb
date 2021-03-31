@@ -75,18 +75,20 @@
         </td>
 
         <td>
-          <%
-=begin%>
+
           <% user.roles.each do |role| %>
           <div class="badge badge-info">
             <%= role.name %>
           </div>
           <% end %>
+          <%
+=begin%>
           <% if policy(user).edit? %>
           <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
           <% end %>
           <%
 =end%>
+
         </td>
       </tr>
       <% end %>
