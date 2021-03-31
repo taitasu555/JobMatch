@@ -3,7 +3,9 @@ class JobsController < ApplicationController
 
   
   def index
-    @jobs = Job.all.order(created_at: :desc)
+    # @jobs = Job.all.order(created_at: :desc)
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result
   end
 
   
@@ -63,6 +65,6 @@ class JobsController < ApplicationController
 
    
     def job_params
-      params.require(:job).permit(:title, :description,:address,:japanese,:status,:position,:salary)
+      params.require(:job).permit(:title, :description, :address,:language, :japanese, :status, :salary)
     end
 end
