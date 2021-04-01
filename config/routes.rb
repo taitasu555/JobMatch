@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'home/index'
   resources :chat_rooms, only: [:create, :show]
   resources :matching, only: [:index]
-  resources :chats
+  
 end

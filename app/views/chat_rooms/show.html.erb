@@ -1,6 +1,6 @@
 <p>チャットルームページ</p>
 
-<%# ==========ここから追加==========%>
+
 <div id='chat-messages'>
   <%= render @chat_messages %>
 </div>
@@ -8,4 +8,3 @@
 <form>
   <textarea data-behavior="chat_room_speaker" data-chat_room_id="<%= @chat_room.id %>" placeholder="メッセージを入力" class="chat-room__message-form_textarea"></textarea>
 </form>
-<%# ==========ここまで追加==========%>
