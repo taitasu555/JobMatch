@@ -36,7 +36,7 @@
         </div>
 
         <div class="job-category-listing mb-50">
-          <%= search_form_for @q do |f| %>
+          <%= search_form_for @ransack_jobs, as: :jobs_search, url: jobs_path do |f| %>
 
           <div class="single-listing">
             <div class="small-section-tittle2">

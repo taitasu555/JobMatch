@@ -4,9 +4,8 @@ class JobsController < ApplicationController
 
   
   def index
-    # @jobs = Job.all.order(created_at: :desc)
-    @q = Job.ransack(params[:q])
-    @jobs = @q.result
+    @ransack_jobs = Job.ransack(params[:jobs_search], search_key: :jobs_search)
+    @jobs = @ransack_jobs.result.includes(:user)
   end
 
   

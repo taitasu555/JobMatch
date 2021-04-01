@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+
+  # top画面でしようする検索バーの設定
+  before_action :set_global_variables
+  def set_global_variables
+    @ransack_jobs = Job.ransack(params[:jobs_search], search_key: :jobs_search) 
+  end
+
   private
+
   def user_not_authorized #pundit
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)

@@ -32,8 +32,18 @@
 
                     <% end %>
 
+                    <% if user_signed_in? %>
+                    <li><a href="#">User menu</a>
+                      <ul class="submenu">
+                        <li><%= link_to "Account edit", edit_user_path(current_user.id) %></li>
 
-                    <li><a href="contact.html">Contact</a></li>
+                        <% if current_user && current_user.has_role?(:recruiter) %>
+                        <li><%= link_to "求人票作成", new_job_path %></li>
+                        <li><a href="job_details.html">job Details</a></li>
+                        <% end %>
+                      </ul>
+                    </li>
+                    <% end %>
                   </ul>
                 </nav>
               </div>
