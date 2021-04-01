@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-
+  include Pagy::Backend  
+  
   # top画面でしようする検索バーの設定
   before_action :set_global_variables
   def set_global_variables
