@@ -16,7 +16,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: 'User roles were successfully updated.'
+      if current_user.has_role?(:admin)
+        redirect_to users_path, notice: 'User roles were successfully updated.'
+      else
+        redirect_to jobs_path, notice: 'User roles were successfully updated.'
+      end
+      
     else
       render :edit
     end

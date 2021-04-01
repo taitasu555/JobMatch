@@ -4,3 +4,5 @@ user = User.new(
   password_confirmation: 'admin@example.com'
 )
 user.save!
+
+
