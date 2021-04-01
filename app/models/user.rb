@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   rolify
   has_many :jobs
+  has_many :enrollments
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
@@ -11,6 +12,10 @@ class User < ApplicationRecord
 
   def online?
     updated_at > 2.minutes.ago
+  end
+
+  def already_apply?(job)
+    self.enrollments.exists?(job_id: job.id)
   end
 
   # rolifyを使用して就活生、リクルーターを作成

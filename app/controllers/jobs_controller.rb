@@ -4,6 +4,7 @@ class JobsController < ApplicationController
 
   
   def index
+    @enrollment = Enrollment.new
     @ransack_jobs = Job.ransack(params[:jobs_search], search_key: :jobs_search)
     @jobs = @ransack_jobs.result.includes(:user)
     @pagy, @jobs = pagy(@ransack_jobs.result.includes(:user))
