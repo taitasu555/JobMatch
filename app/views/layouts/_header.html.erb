@@ -39,8 +39,11 @@
 
                         <% if current_user && current_user.has_role?(:recruiter) %>
                         <li><%= link_to "求人票作成", new_job_path %></li>
-                        <li><a href="job_details.html">job Details</a></li>
                         <% end %>
+
+
+                        <li><%= link_to "message boxs", enrollments_path %></li>
+
                       </ul>
                     </li>
                     <% end %>

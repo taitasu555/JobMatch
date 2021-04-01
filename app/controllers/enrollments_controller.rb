@@ -3,7 +3,8 @@ class EnrollmentsController < ApplicationController
 
   
   def index
-    @enrollments = Enrollment.where(user_id: current_user.id).all
+    @enrollment_to = Enrollment.where(to_user_id: current_user.id).all
+    @enrollment_from = Enrollment.where(from_user_id: current_user.id).all
   end
 
   def create
@@ -36,6 +37,6 @@ class EnrollmentsController < ApplicationController
 
    
     def enrollment_params
-      params.permit(:job_id, :user_id)
+      params.permit(:job_id, :to_user_id, :from_user_id)
     end
 end

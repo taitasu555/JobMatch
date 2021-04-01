@@ -11,13 +11,12 @@ class Job < ApplicationRecord
     title
   end
 
+  
+
   STATUS = [:"Full-time employee", :"Contract employee", :"part time job"]
   def self.status
     STATUS.map { |status| [status, status] }
   end
 
-  LEVELS = [:"Beginner", :"Intermediate", :"Advanced"]
-  def self.levels
-    LEVELS.map { |level| [level, level] }
-  end
+  
 end

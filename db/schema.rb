@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_023204) do
+ActiveRecord::Schema.define(version: 2021_04_01_123307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,13 +46,47 @@ ActiveRecord::Schema.define(version: 2021_04_01_023204) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "enrollments", force: :cascade do |t|
-    t.bigint "job_id", null: false
+  create_table "chat_messages", force: :cascade do |t|
+    t.bigint "chat_room_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
+  end
+
+  create_table "chat_room_users", force: :cascade do |t|
+    t.bigint "chat_room_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_chat_room_users_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_room_users_on_user_id"
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.integer "partner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_chats_on_users_id"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "to_user_id", null: false
+    t.bigint "from_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["from_user_id"], name: "index_enrollments_on_from_user_id"
     t.index ["job_id"], name: "index_enrollments_on_job_id"
-    t.index ["user_id"], name: "index_enrollments_on_user_id"
+    t.index ["to_user_id"], name: "index_enrollments_on_to_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -106,7 +140,12 @@ ActiveRecord::Schema.define(version: 2021_04_01_023204) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_messages", "chat_rooms"
+  add_foreign_key "chat_messages", "users"
+  add_foreign_key "chat_room_users", "chat_rooms"
+  add_foreign_key "chat_room_users", "users"
   add_foreign_key "enrollments", "jobs"
-  add_foreign_key "enrollments", "users"
+  add_foreign_key "enrollments", "users", column: "from_user_id"
+  add_foreign_key "enrollments", "users", column: "to_user_id"
   add_foreign_key "jobs", "users"
 end

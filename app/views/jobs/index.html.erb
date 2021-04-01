@@ -115,11 +115,11 @@
               <div class="items-link items-link2 f-right">
                 <% if user_signed_in? %>
                 <% if current_user.has_role?(:user) %>
-                <% if current_user.already_apply?(job)%>
-                <a href="#">You have already applied</a>
-                <% else %>
-                <%= link_to "Apply", enrollments_path(job_id: job.id, user_id: current_user.id), method: :post  %>
-                <% end %>
+
+
+
+                <%= link_to "Apply", enrollments_path(job_id: job.id, to_user_id: current_user.id, from_user_id: job.user.id), method: :post  %>
+
                 <% end %>
                 <% end %>
                 <span><%= job.created_at%></span>

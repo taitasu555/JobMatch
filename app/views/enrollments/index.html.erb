@@ -1,4 +1,19 @@
-<% @enrollments.each do |enrollment|%>
-<%= enrollment.job.user.email %>
+<%if current_user.has_role?(:user)%>
+
+<% @enrollment_to.each do |enrollment|%>
+<%= link_to chat_rooms_path(params: { user_id: enrollment.job.user.id }), method: :post do %>
+<%= enrollment.from_user.email %>
 <br />
-<%end%>
+<% end %>
+<% end %>
+
+<% elsif  current_user.has_role?(:recruiter) %>
+
+<% @enrollment_from.each do |enrollment|%>
+<%= link_to chat_rooms_path(params: { user_id: enrollment.job.user.id }), method: :post do %>
+<%= enrollment.to_user.email %>
+<br />
+
+<% end %>
+<% end %>
+<% end %>
