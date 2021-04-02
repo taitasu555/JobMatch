@@ -21,19 +21,17 @@
 
                     <% if current_user && current_user.has_role?(:admin) %>
 
-                    <li><a href="#">管理者用ページ</a>
+                    <li>管理者用ページ
                       <ul class="submenu">
                         <li><%= link_to "利用者一覧", users_path %></li>
-                        <li><a href="single-blog.html">Blog Details</a></li>
-                        <li><a href="elements.html">Elements</a></li>
-                        <li><a href="job_details.html">job Details</a></li>
+
                       </ul>
                     </li>
 
                     <% end %>
 
                     <% if user_signed_in? %>
-                    <li><a href="#">User menu</a>
+                    <li>User menu
                       <ul class="submenu">
                         <li><%= link_to "Account edit", edit_user_path(current_user.id) %></li>
 
