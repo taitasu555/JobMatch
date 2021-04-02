@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enrollment: one
+  is_user: false
+  content: MyText
+
+two:
+  enrollment: two
+  is_user: false
+  content: MyText

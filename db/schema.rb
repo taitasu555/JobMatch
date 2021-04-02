@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_023204) do
+ActiveRecord::Schema.define(version: 2021_04_02_035036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,15 +46,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_023204) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "chats", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.integer "partner_id", null: false
-    t.string "sentence", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_chats_on_users_id"
-  end
-
   create_table "enrollments", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "to_user_id", null: false
@@ -79,6 +70,15 @@ ActiveRecord::Schema.define(version: 2021_04_01_023204) do
     t.integer "salary", default: 0, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "enrollment_id", null: false
+    t.boolean "is_user"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enrollment_id"], name: "index_messages_on_enrollment_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -121,4 +121,5 @@ ActiveRecord::Schema.define(version: 2021_04_01_023204) do
   add_foreign_key "enrollments", "users", column: "from_user_id"
   add_foreign_key "enrollments", "users", column: "to_user_id"
   add_foreign_key "jobs", "users"
+  add_foreign_key "messages", "enrollments"
 end

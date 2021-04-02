@@ -1,23 +1,20 @@
 <%if current_user.has_role?(:user)%>
 
 <% @enrollment_to.each do |enrollment|%>
-<%= link_to chat_rooms_path(params: { user_id: enrollment.job.user.id }), method: :post do %>
 <%= enrollment.from_user.email %>
+<%= link_to "個人チャット", enrollment_path(enrollment) %>
 <br />
 <% end %>
-<% end %>
+
 
 <% elsif  current_user.has_role?(:recruiter) %>
 
 <% @enrollment_from.each do |enrollment|%>
-<%= link_to chat_rooms_path(params: { user_id: enrollment.job.user.id }), method: :post do %>
+
 <%= enrollment.to_user.email %>
+<%= link_to "個人チャット", enrollment_path(enrollment) %>
 <br />
 
-<% end %>
-<% end %>
-<% end %>
 
-<%@chat_partners.each do |chat_partner|%>
-<%=link_to "#{chat_partner.email}さんとのトークルーム","/chats/#{chat_partner.id}"%>
-<%end%>
+<% end %>
+<% end %>

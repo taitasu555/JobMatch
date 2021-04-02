@@ -2,9 +2,7 @@ class User < ApplicationRecord
   rolify
   has_many :jobs
   has_many :enrollments
-  has_many :messages
-  
-  has_many :chats,dependent: :destroy
+
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable

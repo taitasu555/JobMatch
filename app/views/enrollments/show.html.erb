@@ -1,14 +1,45 @@
-<p id="notice"><%= notice %></p>
+<h1>チャットサンプル</h1>
+<% if current_user.has_role?(:user) %>
+<h3><%= @user.email %>とのチャットルーム</h3>
+<div class="chat-field">
+  <% @messages.each do |m| %>
+  <!-- メッセージがUserによるものだったら -->
+  <% if m.is_user %>
+  <!-- メッセージを右に寄せる -->
+  <div class="right-message">
+    <%= m.content %>
+  </div>
+  <!-- メッセージがShopによるものだったら -->
+  <% else %>
+  <!-- メッセージを左に寄せる -->
+  <div class="left-message">
+    <%= m.content %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<% elsif current_user.has_role?(:recruiter) %>
+<h3><%= @user.email %>とのチャットルーム</h3>
+<div class="chat-field">
+  <% @messages.each do |m| %>
+  <!-- メッセージがUserによるものだったら -->
+  <% if m.is_user %>
+  <!-- メッセージを左に寄せる -->
+  <div class="left-message">
+    <%= m.content %>
+  </div>
+  <!-- メッセージがShopによるものだったら -->
+  <% else %>
+  <!-- メッセージを右に寄せる -->
+  <div class="right-message">
+    <%= m.content %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<% end %>
 
-<p>
-  <strong>Job:</strong>
-  <%= @enrollment.job_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @enrollment.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
-<%= link_to 'Back', enrollments_path %>
+<%= form_for [@enrollment, @message] do |f| %>
+<%= f.text_field :content %>
+<%= f.submit "メッセージを送る"%>
+<% end %>
