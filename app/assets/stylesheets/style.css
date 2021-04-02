@@ -4235,71 +4235,6 @@ hr {
   text-transform: capitalize;
 }
 
-.popup_box .nice-select {
-  -webkit-tap-highlight-color: transparent;
-  background-color: #fff;
-  border: solid 1px #e2e2e2;
-  box-sizing: border-box;
-  clear: both;
-  cursor: pointer;
-  display: block;
-  float: left;
-  font-family: "Muli", sans-serif;
-  font-weight: normal;
-  width: 100% !important;
-  line-height: 50px;
-  outline: none;
-  padding-left: 18px;
-  padding-right: 30px;
-  position: relative;
-  text-align: left !important;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  width: auto;
-  border-radius: 0;
-  margin-bottom: 30px;
-  height: 50px !important;
-  font-size: 16px;
-  font-weight: 400;
-  color: #919191;
-}
-
-.popup_box .nice-select::after {
-  content: "\f0d7";
-  display: block;
-  height: 5px;
-  margin-top: -5px;
-  pointer-events: none;
-  position: absolute;
-  right: 17px;
-  top: 3px;
-  transition: all 0.15s ease-in-out;
-  width: 5px;
-  font-family: fontawesome;
-  color: #919191;
-  font-size: 15px;
-}
-
-.popup_box .nice-select.open .list {
-  opacity: 1;
-  pointer-events: auto;
-  -webkit-transform: scale(1) translateY(0);
-  -ms-transform: scale(1) translateY(0);
-  transform: scale(1) translateY(0);
-  height: 200px;
-  overflow-y: scroll;
-}
-
-.popup_box .nice-select.list {
-  height: 200px;
-  overflow-y: scroll;
-}
-
 #test-form {
   display: inline-block;
   margin: auto;
@@ -5415,53 +5350,9 @@ del {
   height: 40px;
 }
 
-.default-select .nice-select {
-  border: none;
-  border-radius: 0px;
-  height: 40px;
-  background: #f9f9ff;
-  padding-left: 20px;
-  padding-right: 40px;
-}
-
-.default-select .nice-select .list {
-  margin-top: 0;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-  width: 100%;
-  padding: 10px 0 10px 0px;
-}
-
-.default-select .nice-select .list .option {
-  font-weight: 300;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  line-height: 28px;
-  min-height: 28px;
-  font-size: 12px;
-  padding-left: 20px;
-}
-
-.default-select .nice-select .list .option.selected {
-  color: #1f2b7b;
-  background: transparent;
-}
-
-.default-select .nice-select .list .option:hover {
-  color: #1f2b7b;
-  background: transparent;
-}
-
 .default-select .current {
   margin-right: 50px;
   font-weight: 300;
-}
-
-.default-select .nice-select::after {
-  right: 20px;
 }
 
 .form-select {
@@ -5469,54 +5360,9 @@ del {
   width: 100%;
 }
 
-.form-select .nice-select {
-  border: none;
-  border-radius: 0px;
-  height: 40px;
-  background: #f9f9ff;
-  padding-left: 45px;
-  padding-right: 40px;
-  width: 100%;
-}
-
-.form-select .nice-select .list {
-  margin-top: 0;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-  width: 100%;
-  padding: 10px 0 10px 0px;
-}
-
-.form-select .nice-select .list .option {
-  font-weight: 300;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  line-height: 28px;
-  min-height: 28px;
-  font-size: 12px;
-  padding-left: 45px;
-}
-
-.form-select .nice-select .list .option.selected {
-  color: #1f2b7b;
-  background: transparent;
-}
-
-.form-select .nice-select .list .option:hover {
-  color: #1f2b7b;
-  background: transparent;
-}
-
 .form-select .current {
   margin-right: 50px;
   font-weight: 300;
-}
-
-.form-select .nice-select::after {
-  right: 20px;
 }
 
 .mt-10 {
@@ -5940,51 +5786,7 @@ form.search-box .select-form {
   }
 }
 
-form.search-box .select-form .nice-select {
-  width: 100%;
-  height: 70px;
-  background: #fff;
-  border-radius: 0px;
-  padding: 11px 19px 11px 10px;
-  color: #616875;
-  line-height: 54px;
-  border: 0;
-}
-
-@media (max-width: 767px) {
-  form.search-box .select-form .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  form.search-box .select-form .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-form.search-box .select-form .nice-select .list {
-  width: 100%;
-}
-
-form.search-box .select-form .nice-select.open .list {
-  width: 100%;
-  border-radius: 0;
-  border: 0;
-}
-
-form.search-box .select-form .nice-select::after {
-  border-bottom: 1px solid #a9b6cd;
-  border-right: 1px solid #a9b6cd;
-  height: 12px;
-  width: 12px;
-  margin-top: -4px;
-  right: 29px;
-}
-
-form.search-box .search-form {
+form.search-box .select-form .form.search-box .search-form {
   width: 21%;
 }
 
@@ -7256,51 +7058,6 @@ form.search-box .search-form a {
   display: flex;
 }
 
-.job-listing-area .count-job .select-job-items .nice-select {
-  width: 100px;
-  height: 30px;
-  background: #fff;
-  border-radius: 0px;
-  padding: 10px 12px;
-  color: #5d5d5d;
-  line-height: 6px;
-  border: 1px solid #ededed;
-  border-radius: 5px;
-}
-
-@media (max-width: 767px) {
-  .job-listing-area .count-job .select-job-items .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .job-listing-area .count-job .select-job-items .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-.job-listing-area .count-job .select-job-items .nice-select .list {
-  width: 100%;
-}
-
-.job-listing-area .count-job .select-job-items .nice-select.open .list {
-  width: 100%;
-  border-radius: 0;
-  border: 0;
-}
-
-.job-listing-area .count-job .select-job-items .nice-select::after {
-  border-bottom: 1px solid #a9b6cd;
-  border-right: 1px solid #a9b6cd;
-  height: 8px;
-  width: 8px;
-  margin-top: -5px;
-  right: 17px;
-}
-
 .job-category-listing {
   border: 1px solid #ededed;
   padding: 30px 19px 30px 30px;
@@ -7316,54 +7073,6 @@ form.search-box .search-form a {
   .job-category-listing {
     padding: 30px 19px 30px 16px;
   }
-}
-
-.job-category-listing .single-listing .select-job-items2 .nice-select {
-  width: 100%;
-  height: 45px;
-  background: #fff;
-  border-radius: 0px;
-  padding: 11px 19px 11px 10px;
-  color: #616875;
-  line-height: 20px;
-  border: 1px solid #ededed;
-}
-
-@media (max-width: 767px) {
-  .job-category-listing .single-listing .select-job-items2 .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .job-category-listing .single-listing .select-job-items2 .nice-select {
-    margin-bottom: 20px;
-    padding-left: 25px;
-  }
-}
-
-.job-category-listing .single-listing .select-job-items2 .nice-select .list {
-  width: 100%;
-}
-
-.job-category-listing
-  .single-listing
-  .select-job-items2
-  .nice-select.open
-  .list {
-  width: 100%;
-  border-radius: 0;
-  border: 0;
-}
-
-.job-category-listing .single-listing .select-job-items2 .nice-select::after {
-  border-bottom: 1px solid #a9b6cd;
-  border-right: 1px solid #a9b6cd;
-  height: 12px;
-  width: 12px;
-  margin-top: -9px;
-  right: 29px;
 }
 
 .job-category-listing .single-listing .select-Categories .container {
@@ -7467,11 +7176,6 @@ form.search-box .search-form a {
   display: none;
 }
 
-.price_rangs_aside .l_w_title h3 {
-  line-height: 20px;
-  margin-bottom: 0px;
-}
-
 .irs-bar {
   height: 6px;
   top: 33px;
@@ -7504,23 +7208,6 @@ form.search-box .search-form a {
 @media (max-width: 991px) {
   .product_bar_item {
     width: 100% !important;
-  }
-}
-
-@media (max-width: 991px) {
-  .product_top_bar {
-    margin-top: 70px;
-  }
-  .product_top_bar h2 {
-    font-size: 25px;
-  }
-  .product_bar_single {
-    margin-left: 0;
-    margin-right: 5px;
-  }
-  .product_bar_single .nice-select {
-    padding-left: 15px;
-    padding-right: 35px;
   }
 }
 
