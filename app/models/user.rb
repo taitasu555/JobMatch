@@ -2,9 +2,8 @@ class User < ApplicationRecord
   rolify
   has_many :jobs
   has_many :enrollments
-  has_many :chat_room_users
-  has_many :chat_rooms, through: :chat_room_users
-  has_many :chat_messages
+  has_many :messages
+  
   has_many :chats,dependent: :destroy
   
   devise :database_authenticatable, :registerable,

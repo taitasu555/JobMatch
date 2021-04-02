@@ -17,3 +17,7 @@
 <% end %>
 <% end %>
 <% end %>
+
+<%@chat_partners.each do |chat_partner|%>
+<%=link_to "#{chat_partner.email}さんとのトークルーム","/chats/#{chat_partner.id}"%>
+<%end%>

@@ -5,6 +5,9 @@ class EnrollmentsController < ApplicationController
   def index
     @enrollment_to = Enrollment.where(to_user_id: current_user.id).all
     @enrollment_from = Enrollment.where(from_user_id: current_user.id).all
+
+    @my_chats=current_user.chats
+    @chat_partners=User.where.not(id:current_user.id)
   end
 
   def create
