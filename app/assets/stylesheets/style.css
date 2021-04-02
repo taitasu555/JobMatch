@@ -156,15 +156,15 @@ p {
 }
 
 .bg-img-1 {
-  background-image: url(../img/slider/slider-img-1.jpg);
+  background-image: url(/images/slider/slider-img-1.jpg);
 }
 
 .bg-img-2 {
-  background-image: url(../img/background-img/bg-img-2.jpg);
+  background-image: url(/images/background-img/bg-img-2.jpg);
 }
 
 .cta-bg-1 {
-  background-image: url(../img/background-img/bg-img-3.jpg);
+  background-image: url(/images/background-img/bg-img-3.jpg);
 }
 
 .img {
@@ -4149,15 +4149,15 @@ hr {
 }
 
 .breadcam_bg {
-  background-image: url(../img/banner/bradcam.png);
+  background-image: url(/images/banner/bradcam.png);
 }
 
 .breadcam_bg_1 {
-  background-image: url(../img/banner/bradcam2.png);
+  background-image: url(/images/banner/bradcam2.png);
 }
 
 .breadcam_bg_2 {
-  background-image: url(../img/banner/bradcam3.png);
+  background-image: url(/images/banner/bradcam3.png);
 }
 
 .bradcam_area {
@@ -4395,7 +4395,7 @@ hr {
   }
 }
 
-.flex-center-start {
+.flex-start {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5201,7 +5201,7 @@ del {
 }
 
 .primary-checkbox input:checked + label {
-  background: url(../img/elements/primary-check.png) no-repeat center
+  background: url(/images/elements/primary-check.png) no-repeat center
     center/cover;
   border: none;
 }
@@ -5240,7 +5240,7 @@ del {
 }
 
 .confirm-checkbox input:checked + label {
-  background: url(../img/elements/success-check.png) no-repeat center
+  background: url(/images/elements/success-check.png) no-repeat center
     center/cover;
   border: none;
 }
@@ -5284,7 +5284,7 @@ del {
 }
 
 .disabled-checkbox input:checked + label {
-  background: url(../img/elements/disabled-check.png) no-repeat center
+  background: url(/images/elements/disabled-check.png) no-repeat center
     center/cover;
   border: none;
 }
@@ -5323,7 +5323,7 @@ del {
 }
 
 .primary-radio input:checked + label {
-  background: url(../img/elements/primary-radio.png) no-repeat center
+  background: url(/images/elements/primary-radio.png) no-repeat center
     center/cover;
   border: none;
 }
@@ -5362,7 +5362,7 @@ del {
 }
 
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center
+  background: url(/images/elements/success-radio.png) no-repeat center
     center/cover;
   border: none;
 }
@@ -5406,7 +5406,7 @@ del {
 }
 
 .disabled-radio input:checked + label {
-  background: url(../img/elements/disabled-radio.png) no-repeat center
+  background: url(/images/elements/disabled-radio.png) no-repeat center
     center/cover;
   border: none;
 }

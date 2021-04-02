@@ -99,7 +99,13 @@
             <div class="single-job-items mb-30">
               <div class="job-items">
                 <div class="company-img">
-                  <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                  <a href="#">
+                    <%
+=begin%>
+                    <%= image_tag "/image/icon/job-list1.png" %>
+                    <%
+=end%>
+                  </a>
                 </div>
                 <div class="job-tittle job-tittle2">
                   <%= link_to job_path(job.id) do%>
