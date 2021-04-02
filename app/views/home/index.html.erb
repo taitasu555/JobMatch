@@ -2,10 +2,8 @@
 
   <!-- 検索バー　-->
   <div class="slider-area ">
-    <!-- Mobile Menu -->
     <div class="slider-active">
       <div class="single-slider slider-height d-flex align-items-center mainpic">
-
         <div class="container">
           <div class="row">
             <div class="col-xl-6 col-lg-9 col-md-10">
@@ -14,32 +12,23 @@
               </div>
             </div>
           </div>
-          <!-- Search Box -->
           <div class="row">
             <div class="col-xl-8">
-              <!-- form -->
-
               <%= search_form_for @ransack_jobs, as: :jobs_search, url: jobs_path do |f| %>
-
               <%= f.search_field :description_cont, placeholder: 'Find a Job' ,class:"input1"%>
               <%=f.search_field :address_cont, placeholder: 'place' ,class:"input1"%>
-
               <%= f.submit class:"btn btn-primary input1"%>
-
               <% end %>
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- slider Area End-->
-  <!-- Our Services Start -->
+
+  <!-- カテゴリー別検索-->
   <div class="our-services section-pad-t30">
     <div class="container">
-      <!-- Section Tittle -->
       <div class="row">
         <div class="col-lg-12">
           <div class="section-tittle text-center">
@@ -149,6 +138,7 @@
     </div>
   </div>
 
+  <!--このアプリの解説 -->
   <div class="online-cv cv-bg section-overly pt-90 pb-120 cv">
     <div class="container">
       <div class="row justify-content-center">
@@ -163,9 +153,9 @@
     </div>
   </div>
 
+  <!--最新の求人票 -->
   <section class="featured-job-area feature-padding">
     <div class="container">
-      <!-- Section Tittle -->
       <div class="row">
         <div class="col-lg-12">
           <div class="section-tittle text-center">
@@ -190,14 +180,15 @@
                 </a>
                 <ul>
                   <li>Creative Agency</li>
-                  <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                  <li>$3500 - $4000</li>
+                  <li><i class="fas fa-map-marker-alt"></i><%=job.address%></li>
+                  <li><%=job.salary%>yen/month</li>
                 </ul>
               </div>
             </div>
             <div class="items-link f-right">
-              <a href="job_details.html">Full Time</a>
-              <span><%= job.created_at%></span>
+              <%=job.status%>
+              <p>
+                <span><%= job.created_at%></span>
             </div>
           </div>
           <% end %>
@@ -206,6 +197,7 @@
     </div>
   </section>
 
+  <!-- アプリの使い方-->
   <div class="apply-process-area apply-bg pt-150 pb-150 searchpic">
     <div class="container">
       <!-- Apply Process Caption -->
