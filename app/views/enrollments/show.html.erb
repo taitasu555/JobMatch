@@ -1,45 +1,70 @@
-<h1>チャットサンプル</h1>
-<% if current_user.has_role?(:user) %>
-<h3><%= @user.email %>とのチャットルーム</h3>
-<div class="chat-field">
-  <% @messages.each do |m| %>
-  <!-- メッセージがUserによるものだったら -->
-  <% if m.is_user %>
-  <!-- メッセージを右に寄せる -->
-  <div class="right-message">
-    <%= m.content %>
-  </div>
-  <!-- メッセージがShopによるものだったら -->
-  <% else %>
-  <!-- メッセージを左に寄せる -->
-  <div class="left-message">
-    <%= m.content %>
-  </div>
-  <% end %>
-  <% end %>
-</div>
-<% elsif current_user.has_role?(:recruiter) %>
-<h3><%= @user.email %>とのチャットルーム</h3>
-<div class="chat-field">
-  <% @messages.each do |m| %>
-  <!-- メッセージがUserによるものだったら -->
-  <% if m.is_user %>
-  <!-- メッセージを左に寄せる -->
-  <div class="left-message">
-    <%= m.content %>
-  </div>
-  <!-- メッセージがShopによるものだったら -->
-  <% else %>
-  <!-- メッセージを右に寄せる -->
-  <div class="right-message">
-    <%= m.content %>
-  </div>
-  <% end %>
-  <% end %>
-</div>
-<% end %>
+ <div class="chat-room-show-page">
+   <% if current_user.has_role?(:user) %>
+   <nav class="navbar navbar-light chat-room__header">
+     <%= link_to enrollments_path, class: "nav-item nav-link" do%>
+     <i class="fas fa-chevron-left"></i>
+     <% end %>
+     <div class="chat-room__partner">
+       <span class="chat-room__partner-name">
+         <%= @user.name %>
+       </span>
+     </div>
+   </nav>
 
-<%= form_for [@enrollment, @message] do |f| %>
-<%= f.text_field :content %>
-<%= f.submit "メッセージを送る"%>
-<% end %>
+   <div id='chat-messages'>
+     <% @messages.each do |m| %>
+     <% if m.is_user %>
+     <div class="chat-message__current-user">
+       <div class="chat-message__content main-color-bg">
+         <%= m.content %>
+       </div>
+     </div>
+     <% else %>
+     <div class="chat-message__partner">
+       <div class="chat-message__content">
+         <%= m.content %>
+       </div>
+
+     </div>
+     <% end %>
+     <% end %>
+   </div>
+
+   <% elsif current_user.has_role?(:recruiter) %>
+   <nav class="navbar navbar-light chat-room__header">
+     <%= link_to enrollments_path, class: "nav-item nav-link" do%>
+     <i class="fas fa-chevron-left"></i>
+     <% end %>
+     <div class="chat-room__partner">
+       <span class="chat-room__partner-name">
+         <%= @user.name %>
+       </span>
+     </div>
+   </nav>
+
+   <div class="chat-message">
+     <% @messages.each do |m| %>
+     <% if m.is_user %>
+     <div class="chat-message__partner">
+       <div class="chat-message__content">
+         <%= m.content %>
+       </div>
+     </div>
+     <% else %>
+     <div class="chat-message__current-user">
+       <div class="chat-message__content main-color-bg">
+         <%= m.content %>
+       </div>
+     </div>
+     <% end %>
+     <% end %>
+   </div>
+
+   <% end %>
+
+   <br>
+   <%= form_for [@enrollment, @message], class:"chat-room__message-form" do |f| %>
+   <%= f.text_field :content ,class:"text1"%>
+   <%= f.submit "send" ,class:"btn1"%>
+   <% end %>
+ </div>

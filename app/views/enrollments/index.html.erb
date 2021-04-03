@@ -2,15 +2,17 @@
   <%if current_user.has_role?(:user)%>
   <div class="matching">
     <p class="matching-title ml-3">message</p>
-    <p class="matching-num">Chat with recruiter<%= @enrollment_to.count %>人</p>
+    <p class="matching-num">Chat with recruiter <%= @enrollment_to.count %>人</p>
 
-    <div class="matching__list">
+
+    <div class="matching__list ">
       <% @enrollment_to.each do |enrollment|%>
-      <div class="matching__person">
-        <div class="matching__person-name">
+      <div class="matching__person line1">
+        <div class="matching__person-name ">
+          You applied <%= enrollment.job.title %>
+          <br>
           <%= link_to  enrollment_path(enrollment), class: "match_link1" do %>
-          <%= enrollment.from_user.company %>
-          <%= enrollment.from_user.name %>
+          Chat with <%= enrollment.from_user.name %>
           <% end %>
         </div>
       </div>
@@ -25,10 +27,12 @@
 
     <div class="matching__list">
       <% @enrollment_from.each do |enrollment|%>
-      <div class="matching__person">
+      <div class="matching__person line1">
         <div class="matching__person-name">
+          <%= enrollment.to_user.name %> applied <%= enrollment.job.title%>
+          <br>
           <%= link_to  enrollment_path(enrollment), class: "match_link1" do%>
-          <%= enrollment.to_user.name %>
+          Chat with <%= enrollment.to_user.name %>
           <% end %>
         </div>
       </div>
