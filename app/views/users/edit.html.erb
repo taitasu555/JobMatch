@@ -5,6 +5,11 @@
   </div>
   <div class="card-body">
     <%= simple_form_for @user do |f| %>
+
+    <% if current_user.has_role?(:recruiter) %>
+    <%= f.input :company, label: "企業名"%>
+    <% end %>
+
     <%= f.collection_check_boxes :role_ids, Role.all, :id, :name %>
     <%= f.error :roles, class: 'text-danger' %>
     <hr />
@@ -12,6 +17,6 @@
     <% end %>
   </div>
   <div class="card-footer">
-    <%= link_to 'Cancel', users_path, class: 'btn btn-danger' %>
+    <%= link_to 'Cancel', root_path, class: 'btn btn-danger' %>
   </div>
 </div>

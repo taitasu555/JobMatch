@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
 
   validates :name, presence: true
-  
+  validate :must_have_a_role, on: :update
+
   def to_s
     email
   end
@@ -20,6 +21,10 @@ class User < ApplicationRecord
   
   # rolifyを使用して就活生、リクルーターを作成
   after_create :assign_default_role
+
+  def assign_default_role
+    self.add_role(:user) if self.roles.blank?
+  end
   
   def assign_default_role
     if User.count == 1

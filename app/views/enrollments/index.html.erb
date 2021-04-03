@@ -1,24 +1,3 @@
-<%if current_user.has_role?(:user)%>
-
-<% @enrollment_to.each do |enrollment|%>
-<%= enrollment.from_user.email %>
-<%= link_to "個人チャット", enrollment_path(enrollment) %>
-<br />
-<% end %>
-
-
-<% elsif  current_user.has_role?(:recruiter) %>
-
-<% @enrollment_from.each do |enrollment|%>
-
-<%= enrollment.to_user.email %>
-<%= link_to "個人チャット", enrollment_path(enrollment) %>
-<br />
-
-
-<% end %>
-<% end %>
-
 <div class="matching-index-page">
   <%if current_user.has_role?(:user)%>
   <div class="matching">
@@ -30,7 +9,8 @@
       <div class="matching__person">
         <div class="matching__person-name">
           <%= link_to  enrollment_path(enrollment), class: "match_link1" do %>
-          <%= enrollment.from_user.email %>
+          <%= enrollment.from_user.company %>
+          <%= enrollment.from_user.name %>
           <% end %>
         </div>
       </div>
@@ -48,7 +28,7 @@
       <div class="matching__person">
         <div class="matching__person-name">
           <%= link_to  enrollment_path(enrollment), class: "match_link1" do%>
-          <%= enrollment.to_user.email %>
+          <%= enrollment.to_user.name %>
           <% end %>
         </div>
       </div>
