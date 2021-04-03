@@ -1,8 +1,6 @@
 Rails.application.configure do
-  config.assets.css_compressor = :sass
-config.assets.js_compressor = :uglifier
   # Settings specified here will take precedence over those in config/application.rb.
-   
+  config.assets.js_compressor = :uglifier
   # Code is not reloaded between requests.
   config.cache_classes = true
 
