@@ -212,7 +212,7 @@ a {
 }
 
 a:hover {
-  color: #fff;
+  color: #fb246a;
 }
 
 a:focus,
@@ -224,7 +224,7 @@ a:hover,
 
 a,
 button {
-  color: #fff;
+  color: #fb246a;
   outline: medium none;
 }
 

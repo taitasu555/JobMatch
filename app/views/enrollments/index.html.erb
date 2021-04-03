@@ -18,3 +18,43 @@
 
 <% end %>
 <% end %>
+
+<div class="matching-index-page">
+  <%if current_user.has_role?(:user)%>
+  <div class="matching">
+    <p class="matching-title ml-3">message</p>
+    <p class="matching-num">Chat with recruiter<%= @enrollment_to.count %>人</p>
+
+    <div class="matching__list">
+      <% @enrollment_to.each do |enrollment|%>
+      <div class="matching__person">
+        <div class="matching__person-name">
+          <%= link_to  enrollment_path(enrollment), class: "match_link1" do %>
+          <%= enrollment.from_user.email %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% elsif  current_user.has_role?(:recruiter) %>
+  <div class="matching">
+    <p class="matching-title ml-3">メッセージ</p>
+    <p class="matching-num">応募者とのチャット <%= @enrollment_from.count %>人</p>
+
+    <div class="matching__list">
+      <% @enrollment_from.each do |enrollment|%>
+      <div class="matching__person">
+        <div class="matching__person-name">
+          <%= link_to  enrollment_path(enrollment), class: "match_link1" do%>
+          <%= enrollment.to_user.email %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% end %>
+</div>

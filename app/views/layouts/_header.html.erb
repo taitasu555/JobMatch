@@ -19,17 +19,6 @@
                       <%= link_to "Find a Jobs", jobs_path %>
                     </li>
 
-                    <% if current_user && current_user.has_role?(:admin) %>
-
-                    <li>管理者用ページ
-                      <ul class="submenu">
-                        <li><%= link_to "利用者一覧", users_path %></li>
-
-                      </ul>
-                    </li>
-
-                    <% end %>
-
                     <% if user_signed_in? %>
                     <li>User menu
                       <ul class="submenu">
@@ -41,6 +30,15 @@
 
 
                         <li><%= link_to "message boxs", enrollments_path %></li>
+
+                      </ul>
+                    </li>
+                    <% end %>
+
+                    <% if current_user && current_user.has_role?(:admin) %>
+                    <li>管理者用ページ
+                      <ul class="submenu">
+                        <li><%= link_to "利用者一覧", users_path %></li>
 
                       </ul>
                     </li>

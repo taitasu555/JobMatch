@@ -1,45 +1,3 @@
-@import "price_rangs.css";
-@import "responsive.css";
-@import "style.css";
-
-// top.html.erbに使用する画像
-.mainpic {
-  background-image: url("/images/hero/h1_hero.jpg");
-}
-
-.cv {
-  background-image: url("/images/gallery/cv_bg.jpg");
-}
-
-// jobsのindex.html.erbに使用する画像
-.jobAllPic {
-  background-image: url("/images/hero/about.jpg");
-}
-
-//formに対するlayouts
-
-.form-control.is-invalid {
-  background-image: none;
-}
-
-.form-control.is-valid {
-  background-image: none;
-}
-
-.input1 {
-  width: 200px;
-  height: 60px;
-  margin-left: 10px;
-}
-
-.left-message {
-  text-align: left;
-}
-
-.right-message {
-  text-align: right;
-}
-// index
 .matching-index-page {
   max-width: 414px;
   margin: 0 auto;
@@ -68,7 +26,7 @@
       height: 74px;
       width: 74px;
       border-radius: 50%;
-      // background-image: url("~profile_default_img_128.png");
+      background-image: url("~profile_default_img_128.png");
       background-size: contain;
     }
     &-img {
@@ -97,16 +55,4 @@
     border-radius: 0.25rem;
     margin: 8px auto;
   }
-}
-
-.match_link1 {
-  color: #fd3378;
-}
-
-.match_link1:hover {
-  color: #fd3378;
-}
-
-li {
-  margin-right: 20px;
 }

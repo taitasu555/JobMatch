@@ -1,20 +1,26 @@
-<h2>Log in</h2>
+<div class="sign-in-page">
+  <div class="card">
+    <div class="card-header">
+      Login
+    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div class="card-body">
+      <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "email" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "password" %>
+      </div>
+
+      <div class="sign-in__submit-btn">
+        <%= f.submit "ログイン", class: "btn btn-block text-white" %>
+      </div>
+      <% end %>
+    </div>
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

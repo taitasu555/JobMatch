@@ -3,10 +3,12 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :enrollments
 
-  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+
+  validates :name, presence: true
+  
   def to_s
     email
   end
