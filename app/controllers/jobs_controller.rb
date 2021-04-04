@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 
   
   def show
-    @enrollment = Enrollment.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   
