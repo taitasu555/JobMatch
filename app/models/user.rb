@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validate :must_have_a_role, on: :update
-
+  validate :cannot_chose_two_role
   def to_s
     email
   end
@@ -45,5 +45,12 @@ class User < ApplicationRecord
         errors.add(:roles, "Must have at least one role ")
       end    
     end  
+
+  # 役割を２つ持つことはできない
+    def cannot_chose_two_role
+      if self.has_role?(:user) && self.has_role?(:recruiter)
+        errors.add(:roles, "Must have  one role ")
+      end
+    end
 
 end

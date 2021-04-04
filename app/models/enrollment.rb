@@ -9,10 +9,4 @@ class Enrollment < ApplicationRecord
   validates_uniqueness_of :to_user_id, scope: :job_id 
   validates_uniqueness_of :job_id, scope: :to_user_id 
 
-  # リクルーターが求人にapplyすることを防ぐ
-  
-
-
-
-  
 end

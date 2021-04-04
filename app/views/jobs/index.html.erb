@@ -110,11 +110,7 @@
                 </div>
               </div>
               <div class="items-link items-link2 f-right">
-                <% if user_signed_in? %>
-                <% if current_user.has_role?(:user) %>
-                <%= link_to "Apply", enrollments_path(job_id: job.id, to_user_id: current_user.id, from_user_id: job.user.id), method: :post  %>
-                <% end %>
-                <% end %>
+                <%= enrollment_button(current_user, job) %>
                 <span><%= job.created_at%></span>
               </div>
             </div>
