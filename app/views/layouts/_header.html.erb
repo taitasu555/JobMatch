@@ -15,12 +15,12 @@
               <div class="main-menu">
                 <nav class="d-none d-lg-block">
                   <ul id="navigation">
-                    <li>
+                    <li class="spaceRight">
                       <%= link_to "Find a Jobs", jobs_path %>
                     </li>
 
                     <% if user_signed_in? %>
-                    <li>User menu
+                    <li class="spaceRight">User menu
                       <ul class="submenu">
                         <li><%= link_to "Account edit", edit_user_path(current_user.id) %></li>
 
@@ -36,7 +36,7 @@
                     <% end %>
 
                     <% if current_user && current_user.has_role?(:admin) %>
-                    <li>管理者用ページ
+                    <li class="spaceRight">管理者用ページ
                       <ul class="submenu">
                         <li><%= link_to "利用者一覧", users_path %></li>
 

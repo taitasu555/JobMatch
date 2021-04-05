@@ -114,7 +114,7 @@
 }
 
 // headerのレイアウト
-li {
+.spaceRight {
   margin-right: 20px;
 }
 
@@ -246,4 +246,18 @@ textarea:focus {
 .text1 {
   width: 68%;
   min-height: 50px;
+}
+
+// jobのshowページのcss
+
+.tag1 {
+  display: inline-block;
+  margin-right: 2px;
+  padding: 0.6em;
+  line-height: 1;
+  text-decoration: none;
+  color: #0000ee;
+  background-color: #fff;
+  border: 1px solid #0000ee;
+  border-radius: 2em;
 }

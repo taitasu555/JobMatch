@@ -32,8 +32,11 @@
                    <h4><%=@job.title%></h4>
                  </a>
                  <ul>
-                   <li><%= @job_tags.ids%>
-                   <li>
+                   <%if @job.tags.any?%>
+                   <% @job_tags.each do |tag|%>
+                   <p class="tag1"><%=tag.tag_name%></p>
+                   <% end %>
+                   <% end %>
                    <li><i class="fas fa-map-marker-alt"></i><%=@job.address%></li>
                    <li><%=@job.salary%></li>
                  </ul>
