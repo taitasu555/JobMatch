@@ -14,25 +14,28 @@ class JobsController < ApplicationController
   
   def show
     @job = Job.find(params[:id])
+    @job_tags = @job.tags 
   end
 
   
   def new
-    @job = Job.new
-    authorize @job
+    @job = current_user.jobs.new               
   end
 
 
   def edit
+    @tag_list = @job.tags.pluck(:tag_name).join(",")
     authorize @job
   end
 
  
   def create
-    @job = Job.new(job_params)
+    @job = current_user.jobs.new(job_params)   
+    tag_list = params[:job][:tag_name].split(nil)
     authorize @job
     respond_to do |format|
       if @job.save
+        @job.save_jobs(tag_list)
         format.html { redirect_to @job, notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else
@@ -44,8 +47,10 @@ class JobsController < ApplicationController
 
   
   def update
+    tag_list = params[:job][:tag_name].split(",")
     respond_to do |format|
       if @job.update(job_params)
+        @job.save_jobs(tag_list)
         format.html { redirect_to @job, notice: "Job was successfully updated." }
         format.json { render :show, status: :ok, location: @job }
       else
@@ -71,6 +76,10 @@ class JobsController < ApplicationController
 
    
     def job_params
-      params.require(:job).permit(:title, :description, :address,:language, :japanese, :status, :salary).merge(user_id: current_user.id)
+      params.require(:job).permit(:title, :description, :address,:language, :japanese, :status, :salary)
+    end
+
+    def tag_params
+      params.require(:job).permit(:tag_name)
     end
 end

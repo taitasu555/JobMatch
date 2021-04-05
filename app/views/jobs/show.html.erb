@@ -25,14 +25,15 @@
            <div class="single-job-items mb-50">
              <div class="job-items">
                <div class="company-img company-img-details">
-                 <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                 <a href="#"></a>
                </div>
                <div class="job-tittle">
                  <a href="#">
                    <h4><%=@job.title%></h4>
                  </a>
                  <ul>
-                   <li>Creative Agency</li>
+                   <li><%= @job_tags.ids%>
+                   <li>
                    <li><i class="fas fa-map-marker-alt"></i><%=@job.address%></li>
                    <li><%=@job.salary%></li>
                  </ul>

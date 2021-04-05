@@ -8,6 +8,9 @@
     <%= f.input :title, label: "求人名(Job Name)"%>
     <%= f.input :address, label: "場所(Place)"%>
     <%= f.input :description ,label: "求人説明(Job Detail)"%>
+    <p> タグ付け</p>
+    <%= f.text_field :tag_name,  value: @tag_list %>
+    <p></p>
     <%= f.input :language, label: "求める言語",collection: [ "English", "Chinese", "French", "Korean", "Spanish"] %>
     <%= f.input :japanese, label: "必要とする日本語レベル(What level of Japanase needed for user)",collection: [ "N1", "N2", "N3" ,"N4", "N5"] %>
     <%= f.input :salary , label: "給料(Salary)" %>

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validate :must_have_a_role, on: :update
   validate :cannot_chose_two_role
+  
   def to_s
     email
   end
