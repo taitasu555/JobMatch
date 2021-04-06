@@ -24,5 +24,12 @@ user = User.new(
 user.save!
 
 
-
+Tag.create([
+  { tag_name: 'IT' },
+  { tag_name: 'Food' },
+  { tag_name: 'Driver'},
+  { tag_name: 'Docter'},
+  { tag_name: 'Helper'},
+  { tag_name: 'Dancer'}
+  ])
 

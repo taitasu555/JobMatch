@@ -16,6 +16,7 @@ class Job < ApplicationRecord
     Job.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
   end
  
+  # tagの保存機能
   def save_jobs(tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - tags

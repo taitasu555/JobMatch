@@ -1,0 +1,19 @@
+<h1>Tag serch </h1>
+<%= form_tag tags_path, method: :get do %>
+<% @tag_list.each do |tag| %>
+<div class="tag-box">
+  <%= link_to tag.tag_name, tags_path(tag_name: tag.id) %>
+</div>
+<% end %>
+<div class="books-container">
+  <% @jobs.each do |j| %>
+  <div class="book">
+    <%= j.title %>
+    <% j.tags.each do |tag| %>
+    <%= tag.tag_name %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+<% end %>

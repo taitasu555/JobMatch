@@ -31,7 +31,7 @@ class JobsController < ApplicationController
  
   def create
     @job = current_user.jobs.new(job_params)   
-    tag_list = params[:job][:tag_name].split(nil)
+    tag_list = params[:job][:tag_name].split(",")
     authorize @job
     respond_to do |format|
       if @job.save

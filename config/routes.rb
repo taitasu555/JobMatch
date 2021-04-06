@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :enrollments, :only => [:show, :create,:index] do
     resources :messages, :only => [:create]
   end
+
+  resources :tags
 end
