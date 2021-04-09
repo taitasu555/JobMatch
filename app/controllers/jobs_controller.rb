@@ -19,7 +19,8 @@ class JobsController < ApplicationController
 
   
   def new
-    @job = current_user.jobs.new               
+    @job = current_user.jobs.new 
+    @tags= Tag.all
   end
 
 

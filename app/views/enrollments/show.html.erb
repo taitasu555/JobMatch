@@ -17,12 +17,14 @@
      <div class="chat-message__current-user">
        <div class="chat-message__content main-color-bg">
          <%= m.content %>
+         <p class="color1"><%=m.created_at.strftime('%Y/%m/%d %H:%M:%S')%></p>
        </div>
      </div>
      <% else %>
      <div class="chat-message__partner">
        <div class="chat-message__content">
          <%= m.content %>
+          <p><%=m.created_at.strftime('%Y/%m/%d %H:%M:%S')%></p>
        </div>
 
      </div>
@@ -48,12 +50,14 @@
      <div class="chat-message__partner">
        <div class="chat-message__content">
          <%= m.content %>
+          <p><%=m.created_at.strftime('%Y/%m/%d %H:%M:%S')%></p>
        </div>
      </div>
      <% else %>
      <div class="chat-message__current-user">
        <div class="chat-message__content main-color-bg">
          <%= m.content %>
+          <p class="color1"><%=m.created_at.strftime('%Y/%m/%d %H:%M:%S')%></p>
        </div>
      </div>
      <% end %>

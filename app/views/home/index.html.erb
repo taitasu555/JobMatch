@@ -188,7 +188,7 @@
             <div class="items-link f-right">
               <%=job.status%>
               <p>
-                <span><%= job.created_at%></span>
+                <span><%= job.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
             </div>
           </div>
           <% end %>
