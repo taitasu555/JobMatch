@@ -47,7 +47,7 @@
 
            <div class="job-post-details">
              <div class="post-details1 mb-50">
-               <!-- Small Section Tittle -->
+          
                <div class="small-section-tittle">
                  <h4>Job Description</h4>
                </div>
@@ -56,14 +56,13 @@
              <div class="post-details2  mb-50">
                <!-- Small Section Tittle -->
                <div class="small-section-tittle">
-                 <h4>Required Knowledge, Skills, and Abilities</h4>
+                 <h4>Required Japanses language level and other needed language</h4>
                </div>
                <ul>
-                 <li>System Software Development</li>
-                 <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
-                 <li>Research and code , libraries, APIs and frameworks</li>
-                 <li>Strong knowledge on software development life cycle</li>
-                 <li>Strong problem solving and debugging skills</li>
+                 <li>Japanese level <%=@job.japanese%></li>
+                 <%if @job.language%>
+                 <li><%=@job.language%>
+                 <%end%>
                </ul>
              </div>
              <div class="post-details2  mb-50">
@@ -72,20 +71,18 @@
                  <h4>Education + Experience</h4>
                </div>
                <ul>
-                 <li>3 or more years of professional design experience</li>
-                 <li>Direct response email experience</li>
-                 <li>Ecommerce website design experience</li>
-                 <li>Familiarity with mobile and web apps preferred</li>
-                 <li>Experience using Invision a plus</li>
+                 <!--<li>3 or more years of professional design experience</li>-->
+                 <!--<li>Ecommerce website design experience</li>-->
+                 <!--<li>Familiarity with mobile and web apps preferred</li>-->
+                 <!--<li>Experience using Invision a plus</li>-->
+                 <!--<li>Direct response email experience</li>-->
                </ul>
              </div>
            </div>
 
          </div>
-         <!-- Right Content -->
          <div class="col-xl-4 col-lg-4">
            <div class="post-details3  mb-50">
-             <!-- Small Section Tittle -->
              <div class="small-section-tittle">
                <h4>Job Overview</h4>
              </div>
@@ -104,19 +101,21 @@
                <% end %>
              </div>
            </div>
+
+          <!--求人会社説明-->
            <div class="post-details4  mb-50">
-             <!-- Small Section Tittle -->
              <div class="small-section-tittle">
-               <h4>Company Information</h4>
+               <h2>Company details</h2>
              </div>
-             <span>Colorlib</span>
-             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+             <p></p>
              <ul>
-               <li>Name: <span>Colorlib </span></li>
+              <li>Company Name: <span> <%=@job.user.company%></span></li>
+               <li>Name: <span> <%=@job.user.name%></span></li>
                <li>Web : <span> colorlib.com</span></li>
-               <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+               <li>Email: <span><%=@job.user.email%></span></li>
              </ul>
            </div>
+
          </div>
        </div>
      </div>
