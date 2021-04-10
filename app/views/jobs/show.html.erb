@@ -7,7 +7,9 @@
          <div class="row">
            <div class="col-xl-12">
              <div class="hero-cap text-center">
-               <h2>UI/UX Designer</h2>
+                <% @job_tags.each do |tag|%>
+                <h2><%=tag.tag_name%></h2>&nbsp;&nbsp;
+                <% end %>
              </div>
            </div>
          </div>
@@ -89,10 +91,8 @@
              <ul>
                <li>Posted date : <span><%=@job.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></li>
                <li>Location : <span><%=@job.address%></span></li>
-               <li>Vacancy : <span>02</span></li>
                <li>Job nature : <span><%=@job.status%></span></li>
                <li>Salary : <span><%=@job.salary%></span></li>
-               <li>Application date : <span></span></li>
              </ul>
              <div class="apply-btn2">
                <% if current_user.has_role?(:user) %>
