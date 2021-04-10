@@ -1,0 +1,43 @@
+<h3>
+  <div class="text-center">
+    投稿済みの求人一覧
+  </div>
+</h3>
+<p></p>
+<br />
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>求人名</th>
+        <th>作成日</th>
+        <th>応募人数</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+      <tr>
+        <td>
+          <%= job.id %>
+        </td>
+        <td>
+           <%= job.title %>
+        </td>
+        <td>
+          <%= job.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </td>
+        <td>
+          <%= job.enrollments.count %>
+        </td>
+        <td> 
+        <%= link_to "編集", edit_job_path(job.id) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

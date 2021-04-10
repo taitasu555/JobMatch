@@ -30,6 +30,7 @@
 
                         <% if current_user && current_user.has_role?(:recruiter) %>
                         <li><%= link_to "求人票作成", new_job_path %></li>
+                        <li><%= link_to "求人管理", admins_path %>
                         <% end %>
 
 

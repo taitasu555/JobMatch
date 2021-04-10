@@ -39,6 +39,5 @@ class Job < ApplicationRecord
   def self.status
     STATUS.map { |status| [status, status] }
   end
-
   
 end

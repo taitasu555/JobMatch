@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/index'
   get 'rooms/show'
   resources :jobs
   devise_for :users
@@ -8,5 +9,6 @@ Rails.application.routes.draw do
     resources :messages, :only => [:create]
   end
 
+  resources :admins, :only => [:index]
   resources :tags
 end

@@ -1,6 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-
 <div class="slider-area ">
   <div class="single-slider section-overly slider-height2 d-flex align-items-center jobAllPic">
     <div class="container">
@@ -43,7 +41,7 @@
 
           <div class="single-listing">
             <div class="small-section-tittle2">
-              <h4>Key word</h4>
+              <h4>Key word serch</h4>
               <%= f.search_field :description_cont, placeholder: '' %>
             </div>
           </div>
@@ -63,18 +61,6 @@
             </div>
           </div>
           <br>
-          <!-- single three -->
-          <div class="single-listing">
-            <!-- select-Categories start -->
-            <div class="select-Categories pb-50">
-              <div class="small-section-tittle2">
-                <h4>Posted Within</h4>
-              </div>
-
-
-            </div>
-            <!-- select-Categories End -->
-          </div>
           <%= f.submit %>
           <%end%>
         </div>
@@ -118,7 +104,7 @@
               </div>
               <div class="items-link items-link2 f-right">
                 <%= enrollment_button(current_user, job) %>
-                <span><%= job.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
+                <span><%= j.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
               </div>
             </div>
             <% end%>

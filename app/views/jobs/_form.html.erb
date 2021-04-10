@@ -8,12 +8,12 @@
     <%= f.input :title, label: "求人名(Job Name)"%>
     <%= f.input :address, label: "場所(Place)"%>
     <%= f.input :description ,label: "求人説明(Job Detail)"%>
-    <p> タグカテゴリー付け<br> 句読点を入力することで複数のタグを付けることができます。
+    <p> タグカテゴリー付け<br> 句読点を入力することで複数のタグを付けることができます。記入例:Consulting,Legal
     <br>
     使用可能タグ一覧<br>
     <%@tags.each do |tag|%>
     <div class="tag2">
-    <%=tag.tag_name%>||<%=tag.jobs.count%> 
+    <%=tag.tag_name%>
     </div>
     <%end%>
     </p>

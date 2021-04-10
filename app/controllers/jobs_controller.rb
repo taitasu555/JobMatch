@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index]
   before_action :set_job, only: %i[ show edit update destroy ]
-
   
   def index
     @enrollment = Enrollment.new
@@ -25,6 +24,7 @@ class JobsController < ApplicationController
 
 
   def edit
+    @tags= Tag.all
     @tag_list = @job.tags.pluck(:tag_name).join(",")
     authorize @job
   end
