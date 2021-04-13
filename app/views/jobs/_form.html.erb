@@ -5,9 +5,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
 
-    <%= f.input :title, label: "求人名(Job Name)"%>
-    <%= f.input :address, label: "場所(Place)"%>
-    <%= f.input :description ,label: "求人説明(Job Detail)"%>
+    <%= f.input :title, label: "求人名"%>
+    <%= f.input :address, label: "場所 *英文字で入力"%>
+    <%= f.input :description ,label: "求人説明"%>
     <p> タグカテゴリー付け<br> 句読点を入力することで複数のタグを付けることができます。記入例:Consulting,Legal
     <br>
     使用可能タグ一覧<br>
@@ -22,8 +22,8 @@
     <p></p>
     <br>
     <%= f.input :language, label: "求める言語",collection: [ "English", "Chinese", "French", "Korean", "Spanish"] %>
-    <%= f.input :japanese, label: "必要とする日本語レベル(What level of Japanase needed for user)",collection: [ "N1", "N2", "N3" ,"N4", "N5"] %>
-    <%= f.input :salary , label: "給料(Salary)" %>
+    <%= f.input :japanese, label: "必要とする日本語レベル",collection: [ "N1", "N2", "N3" ,"N4", "N5"] %>
+    <%= f.input :salary , label: "給料" %>
     <%= f.input :status, label: "雇用形態",collection: [ "Full-time employee", "Contract employee", "part time job",] %>
 
   </div>
