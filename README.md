@@ -1,24 +1,27 @@
-# README
+<留学生向けアルバイト、就活アプリ>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+制作期間,言語
+2021年3月~
 
-* Ruby version
+Ruby on Rails
+UIには商用可能bootstrapテンプレートを使用
 
-* System dependencies
 
-* Configuration
+なぜ作ったのか？
+留学生と企業でのミスマッチが非常に多い問題を解決したいと考え作成
 
-* Database creation
+使用法
+<リクルーター>
+リクルータとしてアカウントを作成し、求人票を作成。
+掲載中の求人票に留学生が応募するとchatルームが作成される
 
-* Database initialization
+<留学生>
+留学生としてアカウントを作成し、求人を検索
+求人に応募するとリクルータとのchatルームが作成される
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+機能
+1 リクルーターと留学生のchat機能
+2 tag検索、求人検索機能
+3 adminによるuser管理
+4 login機能(gem device)

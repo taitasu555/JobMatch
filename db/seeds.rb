@@ -1,36 +1,36 @@
-# user = User.new(
-#   name: "admin",
-#   email: 'admin@example.com', 
-#   password: 'admin@example.com', 
-#   password_confirmation: 'admin@example.com'
-# )
-# user.save!
+ user = User.new(
+name: "admin",
+email: 'admin@example.com', 
+password: 'admin@example.com', 
+password_confirmation: 'admin@example.com'
+)
+user.save!
 
 
-# user = User.new(
-#   name: "リクルーター",
-#   email: 'aaa@example.com', 
-#   password: 'aaa@example.com', 
-#   password_confirmation: 'aaa@example.com'
-# )
+user = User.new(
+   name: "リクルーター",
+   email: 'aaa@example.com', 
+   password: 'aaa@example.com', 
+   password_confirmation: 'aaa@example.com'
+ )
 
-# user.save!
-# user = User.new(
-#   name: "就活生",
-#   email: 'bbb@example.com', 
-#   password: 'bbb@example.com', 
-#   password_confirmation: 'bbb@example.com'
-# )
-# user.save!
+user.save!
+ user = User.new(
+  name: "就活生",
+  email: 'bbb@example.com', 
+  password: 'bbb@example.com', 
+  password_confirmation: 'bbb@example.com'
+ )
+ user.save!
 
 
 Tag.create([
-  # { tag_name: 'Executive ' },
-  # { tag_name: 'IT (PC, Web, Unix)' },
-  # { tag_name: 'Electronics (Appliance/Semiconductor) '},
-  # { tag_name: 'IT (Embedded Software, Control Systems) '},
-  # { tag_name: 'IT (Other) '},
-  # { tag_name: 'Electronics (Appliance/Semiconductor) '},
+  { tag_name: 'Executive ' },
+  { tag_name: 'IT (PC, Web, Unix)' },
+   { tag_name: 'Electronics (Appliance/Semiconductor) '},
+   { tag_name: 'IT (Embedded Software, Control Systems) '},
+   { tag_name: 'IT (Other) '},
+   { tag_name: 'Electronics (Appliance/Semiconductor) '},
   { tag_name: 'Manufacturing (Automobile/Plant Engineering/Precision Equipment)'},
   { tag_name: 'Medical/Pharmaceutical/Bio/Fabric/Food'},
   { tag_name: 'Building/Construction/Equipment/Real Estate '},
